@@ -65,31 +65,35 @@ class Model:
         return MyValidator(self.schema)
 
 
-class Users(Model):
+class User(Model):
     def __init__(self):
         super().__init__()
         self.schema = {
             "type": "object",
-            "required": ["displayName", "fullName", "password"],
+            "required": ["displayName", "password"],
             "properties": {
                 "displayName": {"type": "string", "is_unique": "displayName"},
                 "password": {"type": "string", min: 8},
             }
         }
 
-        def before_create(self, payload):
-            payload["password"] = generate_password_hash(
-                payload["password"],
-                method="sha256"
-            )
+    def get(self, user_id):
+        user = self.find_where(key=id, value=user_id)
+        return user[0] if len(user) else None
 
-            return payload
+    def before_create(self, payload):
+        payload["password"] = generate_password_hash(
+            payload["password"],
+            method="sha256"
+        )
 
-        def check_password(self, stored_password, password):
-            return check_password_hash(stored_password, password)
+        return {**payload, "is_active": True}
+
+    def check_password(self, stored_password, password):
+        return check_password_hash(stored_password, password)
 
 
-class Channels(Model):
+class Channel(Model):
     def __init__(self):
         super().__init__()
         self.schema = {
@@ -101,7 +105,7 @@ class Channels(Model):
         }
 
 
-class Messages(Model):
+class Message(Model):
     def __init__(self):
         super().__init__()
         self.schema = {
