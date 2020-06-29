@@ -47,3 +47,21 @@ class Message(Model):
                 "created_at": {"type": "string"}
             }
         }
+
+    def before_create(self):
+        # The application can store only 100 messages per channel.
+        # the attribute refer to a unique channel id.
+        # retreive all messages while to[channelId] equal
+        # to the current message destinaton. sort by created_at
+        # if the result length equal to 100, replace the first entry using update method,
+        # chang e the `id` to. else use move to create method
+        result = self.find_where(key="to", value=self.to)
+
+        if len(result) == 100:
+            result.sort(key=lambda item: item["created_at"])
+            payload = {
+                "id": self.generate_id(),
+                **dict(self)
+            }
+            current_id = result[0]["id"]
+            return self.update(current_id, payload)
