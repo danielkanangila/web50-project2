@@ -1,40 +1,31 @@
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 from model import Model
 
 
-class User(Model):
+class User(UserMixin, Model):
     def __init__(self):
-        super().__init__()
-        self.schema = {
+        super().__init__("users")
+        self.validation_schema = {
             "type": "object",
-            "required": ["displayName", "password"],
+            "required": ["username", "displayName", "password"],
             "properties": {
-                "displayName": {"type": "string", "is_unique": "displayName"},
-                "password": {"type": "string", min: 8},
+                "username": {"type": "string", "unique": "username"}
             }
         }
 
-    def get(self, user_id):
-        user = self.find_where(key=id, value=user_id)
-        return user[0] if len(user) else None
-
-    def before_create(self, payload):
-        payload["password"] = generate_password_hash(
-            payload["password"],
+    def before_create(self):
+        self.password = generate_password_hash(
+            self.password,
             method="sha256"
         )
-
-        return {**payload, "is_active": True}
-
-    def check_password(self, stored_password, password):
-        return check_password_hash(stored_password, password)
 
 
 class Channel(Model):
     def __init__(self):
-        super().__init__()
-        self.schema = {
+        super().__init__("channels")
+        self.validation_schema = {
             "type": "object",
             "required": ["name"],
             "properties": {
@@ -45,8 +36,8 @@ class Channel(Model):
 
 class Message(Model):
     def __init__(self):
-        super().__init__()
-        self.schema = {
+        super().__init__("messages")
+        self.validation_schema = {
             "type": "object",
             "required": ["from", "to", "message", "created_at"],
             "properties": {
