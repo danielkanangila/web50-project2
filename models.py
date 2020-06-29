@@ -1,5 +1,5 @@
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from flask_bcrypt import generate_password_hash, check_password_hash
 
 from model import Model
 
@@ -16,10 +16,10 @@ class User(UserMixin, Model):
         }
 
     def before_create(self):
-        self.password = generate_password_hash(
-            self.password,
-            method="sha256"
-        )
+        self.password = generate_password_hash(self.password, 10)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
 
 class Channel(Model):
