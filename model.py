@@ -1,7 +1,7 @@
 import uuid
 from jsonschema import Draft4Validator, validators, ValidationError
 
-from settings import store
+from config import store
 
 
 class Model(object):
@@ -51,7 +51,7 @@ class Model(object):
         self.set_attributes(payload)
         self.before_update()
         self.validator().validate(dict(self))
-        result = store.update(self.__storage_name, dict(self))
+        result = store.update(self.__storage_name, item_id, dict(self))
         self.set_attributes(result)
         self.after_update()
         return dict(self)
@@ -84,5 +84,5 @@ class Model(object):
         for key in data:
             setattr(self, key, data[key])
 
-    def generate_id():
+    def generate_id(self):
         return uuid.uuid4().hex

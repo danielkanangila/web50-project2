@@ -6,9 +6,6 @@ class Store(object):
         for storage in storages:
             self.storages[storage] = []
 
-    def gen_id(self):
-        return uuid.uuid4()
-
     def add(self, storage_name, payload):
         self.storages[storage_name].append(payload)
         return payload

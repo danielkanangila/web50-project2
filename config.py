@@ -1,4 +1,7 @@
 from os import environ
+from store import Store
+
+store = Store()
 
 
 class Config:

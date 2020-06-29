@@ -1,8 +1,12 @@
 import os
-
 from flask import Flask
 from flask_socketio import SocketIO, emit
 from flask_login import LoginManager
+
+from config import store
+
+# Creating data storages. Acting as database
+store.create_storages(["channels", "messages", "users"])
 
 login_manager = LoginManager()
 
