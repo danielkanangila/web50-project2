@@ -39,7 +39,7 @@ class Model(object):
         result = store.add(self.__storage_name, dict(self))
         self.set_attributes(result)
         self.after_create()
-        return dict(self)
+        return self
 
     def before_create(self):
         pass
@@ -54,7 +54,7 @@ class Model(object):
         result = store.update(self.__storage_name, item_id, dict(self))
         self.set_attributes(result)
         self.after_update()
-        return dict(self)
+        return self
 
     def before_update(self):
         pass

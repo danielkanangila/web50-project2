@@ -15,7 +15,7 @@ user = User()
 
 @login_manager.user_loader
 def load_user(user_id):
-    return user.get(user_id)
+    return user.find_by_id(user_id)
 
 
 @auth_bp.route("/api/auth/login", methods=["POST"])
@@ -25,11 +25,15 @@ def login():
             return jsonify({"message": "User is aleready logged in"}), 200
 
         stored_user = user.find_where(
-            key="displayName", value=request.json["displayName"])
+            key="username", value=request.json["username"])
 
-        if len(stored_user) and user.check_password(stored_user[0]["password"], request.json["password"]):
-            login_user(stored_user[0])
-            return jsonify(stored_user[0])
+        print(stored_user)
+
+        if len(stored_user):
+            user.set_attributes(stored_user[0])
+            if user.check_password(request.json["password"]):
+                login_user(user)
+                return user.as_json()
 
         return jsonify({"message": "Invalid credentials"}), 400
 
@@ -44,7 +48,7 @@ def register():
         new_user = user.create(payload=request.json)
         login_user(new_user)
 
-        return jsonify(new_user), 201
+        return new_user.as_json(), 201
     except ValidationError as error:
         return jsonify({"message": error.message}), 400
     except Exception as e:

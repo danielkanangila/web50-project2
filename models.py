@@ -1,3 +1,4 @@
+from flask import jsonify
 from flask_login import UserMixin
 from flask_bcrypt import generate_password_hash, check_password_hash
 
@@ -16,10 +17,16 @@ class User(UserMixin, Model):
         }
 
     def before_create(self):
-        self.password = generate_password_hash(self.password, 10)
+        self.password = generate_password_hash(
+            self.password, 10).decode("utf8")
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+    def as_json(self):
+        u = dict(self)
+        del u["password"]
+        return jsonify(u)
 
 
 class Channel(Model):
