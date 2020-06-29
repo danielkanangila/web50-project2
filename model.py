@@ -35,7 +35,7 @@ class Model(object):
         self.set_attributes(payload)
         self.before_create()
         self.validator().validate(dict(self))
-        self.id = uuid.uuid4().hex
+        self.id = self.generate_id()
         result = store.add(self.__storage_name, dict(self))
         self.set_attributes(result)
         self.after_create()
@@ -48,11 +48,11 @@ class Model(object):
         pass
 
     def update(self, item_id, payload):
-        self.set_attribute(payload)
+        self.set_attributes(payload)
         self.before_update()
         self.validator().validate(dict(self))
         result = store.update(self.__storage_name, dict(self))
-        self.set_attribute(result)
+        self.set_attributes(result)
         self.after_update()
         return dict(self)
 
@@ -83,3 +83,6 @@ class Model(object):
     def set_attributes(self, data):
         for key in data:
             setattr(self, key, data[key])
+
+    def generate_id():
+        return uuid.uuid4().hex
