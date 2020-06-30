@@ -8,6 +8,10 @@ from model import Model
 class User(UserMixin, Model):
     def __init__(self):
         super().__init__("users")
+        self.username = None
+        self.displayName = None,
+        self.password = None,
+
         self.validation_schema = {
             "type": "object",
             "required": ["username", "displayName", "password"],
@@ -32,6 +36,9 @@ class User(UserMixin, Model):
 class Channel(Model):
     def __init__(self):
         super().__init__("channels")
+        self.id = None
+        self.name = None
+
         self.validation_schema = {
             "type": "object",
             "required": ["name"],
@@ -44,9 +51,15 @@ class Channel(Model):
 class Message(Model):
     def __init__(self):
         super().__init__("messages")
+        self.id = None
+        self.sender_id = None
+        self.destination_id = None
+        self.body = None
+        self.created_at = None
+
         self.validation_schema = {
             "type": "object",
-            "required": ["from", "to", "message", "created_at"],
+            "required": ["sender_id", "destination_id", "body", "created_at"],
             "properties": {
                 "from": {"type": "object"},
                 "to": {"type": "object"},
@@ -62,7 +75,8 @@ class Message(Model):
         # to the current message destinaton. sort by created_at
         # if the result length equal to 100, replace the first entry using update method,
         # chang e the `id` to. else use move to create method
-        result = self.find_where(key="to", value=self.to)
+        result = self.find_where(key="destination_id",
+                                 value=self.destination_id)
 
         if len(result) == 100:
             result.sort(key=lambda item: item["created_at"])
