@@ -1,6 +1,11 @@
 from os import environ
 from store import Store
+from flask_socketio import SocketIO
 
+# Initialize socket io
+socketio = SocketIO()
+
+# Initialize store
 store = Store()
 
 

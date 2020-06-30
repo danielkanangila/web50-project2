@@ -1,10 +1,9 @@
 import os
 from flask import Flask
 from flask_login import LoginManager
-from flask_socketio import SocketIO, emit
 from flask_session import Session
 
-from config import store
+from config import store, socketio
 
 # Creating data storages. Acting as database
 store.create_storages(["channels", "messages", "users"])
@@ -22,7 +21,7 @@ def create_app():
     Session(app)
 
     # Initialize SocketIO
-    socketio = SocketIO(app, manage_session=False)
+    socketio.init_app(app, manage_session=False, cors_allowed_origins="*")
 
     # Initialize Plugins
     login_manager.init_app(app)
@@ -39,4 +38,4 @@ def create_app():
 
 
 if __name__ == "__main__":
-    create_app()
+    create_app().run()

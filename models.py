@@ -36,7 +36,7 @@ class Channel(Model):
             "type": "object",
             "required": ["name"],
             "properties": {
-                "name": {"type": "string", "is_unique": "name"}
+                "name": {"type": "string", "unique": "name"}
             }
         }
 
