@@ -1,5 +1,6 @@
 Flask
 Flask-Bcrypt
 Flask-Login
+Flask-Session
 Flask-SocketIO
 jsonschema

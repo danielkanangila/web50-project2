@@ -1,7 +1,8 @@
 import os
 from flask import Flask
-from flask_socketio import SocketIO, emit
 from flask_login import LoginManager
+from flask_socketio import SocketIO, emit
+from flask_session import Session
 
 from config import store
 
@@ -17,8 +18,11 @@ def create_app():
     # App configuration
     app.config.from_object('config.Config')
 
+    # Initialize session
+    Session(app)
+
     # Initialize SocketIO
-    socketio = SocketIO(app)
+    socketio = SocketIO(app, manage_session=False)
 
     # Initialize Plugins
     login_manager.init_app(app)
