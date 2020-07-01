@@ -4,7 +4,7 @@ import { useFormikContext } from "formik";
 import InputField from "../InputField";
 import ErrorMessage from "../ErrorMessage";
 
-const FormTextField = ({ label, name, type = "text" }) => {
+const FormTextField = ({ Icon, label, name, type = "text" }) => {
   const {
     errors,
     setFieldTouched,
@@ -16,13 +16,15 @@ const FormTextField = ({ label, name, type = "text" }) => {
   return (
     <div className="form-field">
       <InputField
+        className={Icon ? "input-icon" : "input"}
         label={label}
         name={name}
         onBlur={() => setFieldTouched(name)}
         onChange={(e) => setFieldValue(name, e.target.value)}
         type={type}
         value={values[name]}
-        placeholder={name}
+        placeholder={label}
+        Icon={Icon}
       />
       <ErrorMessage visible={touched[name]} error={errors[name]} />
     </div>

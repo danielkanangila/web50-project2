@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import FormCheckbox from "../components/form/FormCheckbox";
+import Icon from "../components/Icon";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required().min(2).label("Username"),
@@ -27,8 +28,18 @@ const Login = () => {
       >
         <Logo />
         <h2>Login</h2>
-        <FormTextField name="username" label="Username" type="text" />
-        <FormTextField name="password" label="Password" type="password" />
+        <FormTextField
+          name="username"
+          label="Username"
+          type="text"
+          Icon={<Icon name="user" />}
+        />
+        <FormTextField
+          name="password"
+          label="Password"
+          type="password"
+          Icon={<Icon name="unlock-alt" />}
+        />
         <div className="auth-form--action">
           <FormCheckbox color={"#fe346e"} name="rememberMe">
             <span>Remember me</span>
@@ -45,7 +56,10 @@ const Login = () => {
           Login
         </Button>
         <p>
-          Not registered? <Link to="/register">Create an account</Link>
+          Not registered?{" "}
+          <Link className="auth-form--link" to="/register">
+            Create an account
+          </Link>
         </p>
       </Form>
       <div className="auth-illustration"></div>

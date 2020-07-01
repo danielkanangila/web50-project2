@@ -5,7 +5,7 @@ import ErrorMessage from "../ErrorMessage";
 
 const FormCheckbox = ({ color, children, name }) => {
   const { errors, setFieldValue, touched, values } = useFormikContext();
-  console.log(errors);
+
   return (
     <>
       <Checkbox
