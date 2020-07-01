@@ -3,6 +3,9 @@ import * as Yup from "yup";
 
 import { Form, FormTextField } from "../components/form";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
+import Logo from "../components/Logo";
+import FormCheckbox from "../components/form/FormCheckbox";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required().min(2).label("Username"),
@@ -17,16 +20,33 @@ const Login = () => {
   return (
     <div className="auth-container">
       <Form
-        initialValues={{ username: "", password: "" }}
+        initialValues={{ username: "", password: "", rememberMe: false }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
         className="auth-form"
       >
+        <Logo />
+        <h2>Login</h2>
         <FormTextField name="username" label="Username" type="text" />
         <FormTextField name="password" label="Password" type="password" />
+        <div className="auth-form--action">
+          <FormCheckbox color={"#fe346e"} name="rememberMe">
+            <span>Remember me</span>
+          </FormCheckbox>
+          <Link
+            className="auth-form--link"
+            to="/auth/help"
+            onClick={(e) => e.preventDefault()}
+          >
+            Forget password
+          </Link>
+        </div>
         <Button type="submit" color="primary">
           Login
         </Button>
+        <p>
+          Not registered? <Link to="/register">Create an account</Link>
+        </p>
       </Form>
       <div className="auth-illustration"></div>
     </div>

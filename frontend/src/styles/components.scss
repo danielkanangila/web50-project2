@@ -1,0 +1,82 @@
+.form-field {
+  margin-bottom: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column-reverse;
+
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.85rem;
+    border-bottom: 3px solid $color-lightgray;
+    background-color: #fafafa;
+    color: $color-darkblue;
+  }
+
+  input:focus {
+    outline: 0;
+    border-color: $color-primary;
+  }
+
+  label {
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: fit-content;
+    z-index: 1 !important;
+    color: $color-darkblue;
+  }
+
+  input:placeholder-shown + label {
+    cursor: text;
+    max-width: 66.66%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform-origin: left bottom;
+    transform: translate(0, 1.8rem) scale(1.5);
+    margin-left: 15px;
+  }
+
+  ::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+  }
+
+  input:focus::-webkit-input-placeholder {
+    opacity: 1;
+  }
+
+  input:not(:placeholder-shown) + label,
+  input:focus + label {
+    font-weight: bold;
+    transform: translate(0, 0) scale(1);
+    cursor: pointer;
+  }
+}
+
+.error {
+  margin-left: 4px;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: $color-primary;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-pink-400;
+  }
+
+  &-primary {
+    background-color: $color-primary;
+    color: white;
+  }
+}

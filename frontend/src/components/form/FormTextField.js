@@ -22,6 +22,7 @@ const FormTextField = ({ label, name, type = "text" }) => {
         onChange={(e) => setFieldValue(name, e.target.value)}
         type={type}
         value={values[name]}
+        placeholder={name}
       />
       <ErrorMessage visible={touched[name]} error={errors[name]} />
     </div>
