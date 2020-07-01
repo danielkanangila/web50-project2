@@ -1,0 +1,12 @@
+.auth {
+  &-container {
+    display: flex;
+
+    width: 100wh;
+    height: 100vh;
+    @media (min-width: 1024px) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
