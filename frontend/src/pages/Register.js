@@ -1,11 +1,14 @@
 import React from "react";
 import * as Yup from "yup";
-
-import Button from "../components/Button";
-import { Form, FormTextField } from "../components/form";
 import { Link } from "react-router-dom";
-import Logo from "../components/Logo";
-import FormCheckbox from "../components/form/FormCheckbox";
+
+import {
+  Form,
+  FormTextField,
+  FormPasswordField,
+  FormCheckbox,
+} from "../components/form";
+import { Button, Logo } from "../components";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required().min(2).label("Username"),
@@ -38,8 +41,8 @@ const Register = () => {
         <h2>Register</h2>
         <FormTextField name="username" label="Username" type="text" />
         <FormTextField name="displayName" label="Display Name" type="text" />
-        <FormTextField name="password" label="Password" type="password" />
-        <FormTextField
+        <FormPasswordField name="password" label="Password" type="password" />
+        <FormPasswordField
           name="passwordConfirm"
           label="Confirm Password"
           type="password"

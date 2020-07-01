@@ -1,14 +1,14 @@
 import React from "react";
 import * as Yup from "yup";
-
-import { Form, FormTextField } from "../components/form";
-import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import Logo from "../components/Logo";
-import FormCheckbox from "../components/form/FormCheckbox";
-import Icon from "../components/Icon";
-import PasswordField from "../components/PasswordField";
-import FormPasswordField from "../components/form/FormPasswordField";
+
+import {
+  Form,
+  FormTextField,
+  FormPasswordField,
+  FormCheckbox,
+} from "../components/form";
+import { Button, Logo, Icon } from "./../components";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required().min(2).label("Username"),
