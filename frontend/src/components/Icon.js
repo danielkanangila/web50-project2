@@ -1,7 +1,9 @@
 import React from "react";
 
-const Icon = ({ name }) => {
-  return <i className={"fas fa-" + name + " icon"}></i>;
+const Icon = ({ name, position = "left", ...otherProps }) => {
+  return (
+    <i className={"fas fa-" + name + " icon " + position} {...otherProps}></i>
+  );
 };
 
 export default Icon;

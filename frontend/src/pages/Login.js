@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 import FormCheckbox from "../components/form/FormCheckbox";
 import Icon from "../components/Icon";
+import PasswordField from "../components/PasswordField";
+import FormPasswordField from "../components/form/FormPasswordField";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required().min(2).label("Username"),
@@ -34,7 +36,7 @@ const Login = () => {
           type="text"
           Icon={<Icon name="user" />}
         />
-        <FormTextField
+        <FormPasswordField
           name="password"
           label="Password"
           type="password"

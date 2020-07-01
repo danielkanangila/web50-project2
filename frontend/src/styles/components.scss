@@ -2,16 +2,29 @@
   margin-bottom: 10px;
 }
 
+.field-password,
 .field {
   display: flex;
   flex-direction: column-reverse;
   position: relative;
 
+  .icon.right {
+    position: absolute;
+    bottom: 12px;
+    right: 15px;
+    color: $color-gray;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
   .icon {
     position: absolute;
-    left: 15px;
     bottom: 12px;
     color: $color-gray;
+
+    &.left {
+      left: 15px;
+    }
   }
 
   input {
