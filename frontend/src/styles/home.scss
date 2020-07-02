@@ -1,0 +1,30 @@
+.dashboard {
+  display: flex;
+  background-color: $color-white;
+  position: relative;
+}
+
+.welcome {
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+    @media (min-width: 900px) {
+      width: 70%;
+    }
+  }
+  h2 {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: $color-gray;
+    @media (min-width: 1024px) {
+      margin-top: 0;
+    }
+  }
+}

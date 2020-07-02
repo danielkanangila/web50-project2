@@ -5,7 +5,7 @@ import Icon from "./Icon";
 const PasswordField = (props) => {
   const [type, setType] = useState("password");
   const getType = () => {
-    return type == "password" ? "text" : "password";
+    return type === "password" ? "text" : "password";
   };
   return (
     <div className="field-password">
