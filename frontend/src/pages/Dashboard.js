@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Route } from "react-router-dom";
 
-import { Sidenav, Toolbar, Menu, BottomNav } from "../components";
+import { Sidebar, Toolbar, Menu, BottomNav } from "../components";
 import Channel from "./Channel";
 import Home from "./Home";
 import { AppContext } from "../contexts";
@@ -23,16 +23,18 @@ const Dashboard = () => {
   const { ToolbarTitle } = useContext(AppContext).appState;
   return (
     <div className="dashboard">
-      <Sidenav />
-      <Toolbar>
-        {ToolbarTitle && <ToolbarTitle />}
-        <Menu items={toolbarMenuItems} />
-      </Toolbar>
-      <Route exact path="/user/home" component={Home} />
-      <Route path="/user/channels/:channel_id" component={Channel} />
-      <Route path="/user/messages" component={Messages} />
-      <Route path="/user/profile" component={Profile} />
-      <BottomNav items={navItems} />
+      <Sidebar navItems={navItems} />
+      <div className="main-container">
+        <Toolbar>
+          {ToolbarTitle && <ToolbarTitle />}
+          <Menu items={toolbarMenuItems} />
+        </Toolbar>
+        <Route exact path="/user/home" component={Home} />
+        <Route path="/user/channels/:channel_id" component={Channel} />
+        <Route path="/user/messages" component={Messages} />
+        <Route path="/user/profile" component={Profile} />
+        <BottomNav items={navItems} />
+      </div>
     </div>
   );
 };

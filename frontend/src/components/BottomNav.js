@@ -9,13 +9,13 @@ const BottomNav = ({ items }) => {
   return (
     <Wrapper>
       {items.map((item) => (
-        <NavItem {...item} />
+        <NavItem key={item.name} {...item} />
       ))}
     </Wrapper>
   );
 };
 
-const NavItem = ({ name, path, icon }) => {
+export const NavItem = ({ name, path, icon }) => {
   return (
     <NavLink to={path} activeClassName="active" className="nav-item">
       <Icon name={icon} />

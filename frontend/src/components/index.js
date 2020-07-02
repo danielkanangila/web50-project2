@@ -5,7 +5,7 @@ export { default as Checkbox } from "./Checkbox";
 export { default as Icon } from "./Icon";
 export { default as PasswordField } from "./PasswordField";
 export { default as Logo } from "./Logo";
-export { default as Sidenav } from "./Sidenav";
+export { default as Sidebar } from "./Sidebar";
 export { default as Toolbar } from "./Toolbar";
 export { default as ToolbarTitle } from "./ToolbarTitle";
 export { default as Menu } from "./Menu";

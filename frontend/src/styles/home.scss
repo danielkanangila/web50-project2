@@ -1,8 +1,24 @@
 .dashboard {
   display: flex;
+  width: 100%;
   background-color: $color-white;
   position: relative;
   height: 100vh;
+}
+
+.sidebar {
+  @media (min-width: 850px) {
+    width: 100%;
+    max-width: 27%;
+    height: 100vh;
+  }
+}
+
+.main-container {
+  width: 100%;
+  @media (min-width: 850px) {
+    width: 73%;
+  }
 }
 
 .welcome {
