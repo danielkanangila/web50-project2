@@ -11,7 +11,7 @@ function App() {
   return (
     <AppContext.Provider value={{ appState, setAppState }}>
       <Switch>
-        <Route path="/" exact component={Dashboard} />
+        <Route path="/user" component={Dashboard} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
       </Switch>

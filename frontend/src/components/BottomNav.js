@@ -69,6 +69,10 @@ const Wrapper = styled.div`
       margin-top: 3px;
     }
   }
+
+  @media (min-width: 850px) {
+    display: none;
+  }
 `;
 
 export default BottomNav;

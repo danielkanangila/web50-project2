@@ -7,6 +7,7 @@ const Toolbar = ({ children }) => {
 };
 
 const Wrapper = styled.div`
+  background-color: ${colors.white};
   position: absolute;
   top: 0;
   left: 0;
@@ -20,6 +21,7 @@ const Wrapper = styled.div`
   -webkit-box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
   -moz-box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
   box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
+  z-index: 900;
 `;
 
 export default Toolbar;
