@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -79,6 +79,7 @@ const Wrapper = styled.div`
       .icon {
         margin-right: 8px;
         color: ${colors.gray};
+        cursor: pointer;
       }
     }
   }
