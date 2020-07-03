@@ -42,7 +42,7 @@ const NavItem = styled(NavLink)`
 
 const Wrapper = styled.div`
   position: absolute;
-  left: -100%;
+  left: -600px;
   top: 57px;
   width: 100%;
   height: calc(100vh - 57px);
@@ -54,23 +54,14 @@ const Wrapper = styled.div`
   -moz-box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
   box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
   z-index: 704;
-  display: none;
+  transition: all 0.75s ease;
   ${({ className }) =>
     className === "open"
       ? `
-        display: block; 
-        display:flex;
-        -webkit-animation: slide 0.5s forwards;
-        -webkit-animation-delay: 0s;
-        animation: slide 0.5s forwards;
-        animation-delay: 0s;
+        left: 0;
       `
       : `
-        -webkit-animation: slideRight 0.5s forwards;
-        -webkit-animation-delay: 0s;
-        animation: slideRight 0.5s forwards;
-        animation-delay: 0s;
-        #display: none;
+      left: -600px;
       `}
 
   @-webkit-keyframes slide {
