@@ -37,8 +37,8 @@ const ListItem = ({
 const Wrapper = styled(NavLink)`
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
-  padding: 10px 20px;
+  font-size: 0.8rem;
+  padding: 7px 20px;
   border-bottom: 1px solid ${colors.lightgray};
   .list-item {
     &--middle {
