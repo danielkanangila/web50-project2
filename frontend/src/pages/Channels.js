@@ -1,13 +1,42 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import styled from "styled-components";
 
 import ListItem from "../components/lists/ListItem";
-import { Icon } from "../components";
+import { Icon, ToolbarTitle, ImageCircle } from "../components";
+import { useLocalStorage } from "./../hooks/useLocalStorage";
 import { formatForBadge, formatToolBarSubMessages } from "../utils";
+import colors from "./../config/colors";
 // To be replace by fetching data from server
 import { channels } from "../devData.js";
+import { AppContext } from "../contexts";
 
 const Channels = () => {
+  const [savedChannel, saveChannel] = useLocalStorage("channel");
+  const { appState, setAppState } = useContext(AppContext);
+
+  useEffect(() => {
+    setToolbarTile(savedChannel);
+  }, []);
+
+  const setToolbarTile = (channelInfo) => {
+    saveChannel(channelInfo);
+    setAppState({
+      ...appState,
+      ToolbarTitle: () => (
+        <ToolbarTitle
+          title={channelInfo.name}
+          subTitle={formatToolBarSubMessages(channelInfo.messages)}
+          Image={
+            <ImageCircle
+              theme={{ background: colors.primary, color: colors.white }}
+              iconName="hashtag"
+            />
+          }
+        />
+      ),
+    });
+  };
+
   return (
     <Wrapper>
       <h2>Channels</h2>
@@ -20,6 +49,7 @@ const Channels = () => {
               highlight={channel.messages ? true : false}
               badgeContent={formatForBadge(channel.messages)}
               Image={<Icon name="hashtag" />}
+              onClick={() => setToolbarTile(channel)}
             />
           </Fragment>
         ))}

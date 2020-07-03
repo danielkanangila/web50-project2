@@ -10,3 +10,4 @@ export { default as Toolbar } from "./Toolbar";
 export { default as ToolbarTitle } from "./ToolbarTitle";
 export { default as Menu } from "./Menu";
 export { default as BottomNav } from "./BottomNav";
+export { default as ImageCircle } from "./ImageCircle";

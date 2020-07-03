@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { AppContext } from "../contexts";
-import { ToolbarTitle } from "../components";
-import ProfileCircle from "../components/ProfileCircle";
+import { ToolbarTitle, ImageCircle } from "../components";
 
 const Profile = () => {
   const { appState, setAppState } = useContext(AppContext);
@@ -13,7 +12,7 @@ const Profile = () => {
         <ToolbarTitle
           title="Daniel Kanangila"
           subTitle=""
-          Image={<ProfileCircle />}
+          Image={<ImageCircle />}
         />
       ),
     });
