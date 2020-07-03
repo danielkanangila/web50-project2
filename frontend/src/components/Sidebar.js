@@ -18,6 +18,7 @@ const Sidebar = ({ profilePic, navItems }) => {
           type="text"
           Icon={<Icon name="search" position="right" />}
           placeholder="Search"
+          style="rounded"
         />
       </div>
       <Sidenav items={navItems} open={openSideMenu} setOpen={setOpenSideMenu} />
@@ -53,9 +54,6 @@ const Wrapper = styled.div`
       align-items: center;
       input {
         background: transparent;
-        border: none;
-        border: 1px solid ${colors.lightgray};
-        border-radius: 25px;
         padding: 6px 15px;
         padding-right: 35px;
         margin-left: 15px;
