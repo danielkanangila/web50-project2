@@ -12,13 +12,7 @@ const Menu = ({ items }) => {
     <Wrapper>
       <Icon onClick={() => setToggle(!toggle)} name="ellipsis-v" />
       {toggle && (
-        <div
-          className={`menu-items animate__animated  ${
-            toggle
-              ? "animate__fadeInDown"
-              : "animate__fadeOutUp" + "animate__delay-2s"
-          }`}
-        >
+        <div className={`menu-items ${toggle ? "open" : "close"}`}>
           {items.map((item) => (
             <MenuItem key={item.name} {...item} />
           ))}
@@ -28,9 +22,9 @@ const Menu = ({ items }) => {
   );
 };
 
-const MenuItem = ({ name, path, icon }) => {
+const MenuItem = ({ name, path, icon, action }) => {
   return (
-    <Link to={path} className="menu-item" path={path}>
+    <Link to={path} className="menu-item">
       {icon && <Icon name={icon} />}
       <span>{name}</span>
     </Link>
@@ -39,6 +33,7 @@ const MenuItem = ({ name, path, icon }) => {
 
 const Wrapper = styled.div`
   position: relative;
+  cursor: pointer;
   .menu {
     &-items {
       position: absolute;
@@ -80,6 +75,7 @@ const Wrapper = styled.div`
         margin-right: 8px;
         color: ${colors.gray};
         cursor: pointer;
+        z-index: 900;
       }
     }
   }

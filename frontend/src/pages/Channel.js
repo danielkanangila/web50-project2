@@ -1,7 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 
 const Channel = () => {
-  return <div>Channel</div>;
+  return <Wrapper>Channel</Wrapper>;
 };
+
+const Wrapper = styled.div`
+  padding-top: 75px;
+`;
 
 export default Channel;

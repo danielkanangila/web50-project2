@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { AppContext } from "../contexts";
-import { ToolbarTitle, Logo } from "../components";
+import { ToolbarTitle } from "../components";
 import ProfileCircle from "../components/ProfileCircle";
 
 const Profile = () => {
@@ -9,7 +9,7 @@ const Profile = () => {
   useEffect(() => {
     setAppState({
       ...appState,
-      ["ToolbarTitle"]: () => (
+      ToolbarTitle: () => (
         <ToolbarTitle
           title="Daniel Kanangila"
           subTitle=""

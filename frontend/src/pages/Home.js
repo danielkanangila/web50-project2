@@ -8,7 +8,7 @@ const Home = () => {
   useEffect(() => {
     setAppState({
       ...appState,
-      ["ToolbarTitle"]: () => (
+      ToolbarTitle: () => (
         <ToolbarTitle
           title="Welcome"
           subTitle="check your channel"
@@ -20,7 +20,10 @@ const Home = () => {
 
   return (
     <div className="welcome">
-      <img src={require("./../images/w-illustration.svg")} />
+      <img
+        src={require("./../images/w-illustration.svg")}
+        alt="Stay connected"
+      />
       <h2>Stay Connected With Your Fellas.</h2>
     </div>
   );

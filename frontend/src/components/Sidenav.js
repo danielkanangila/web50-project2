@@ -5,11 +5,16 @@ import { NavLink } from "react-router-dom";
 import Icon from "./Icon";
 import colors from "./../config/colors";
 
-const Sidenav = ({ items, open }) => {
+const Sidenav = ({ items, open, setOpen }) => {
   return (
     <Wrapper className={open ? "open" : ""}>
       {items.map(({ name, path, icon }) => (
-        <NavItem to={path} activeClassName="active" key={name}>
+        <NavItem
+          to={path}
+          activeClassName="active"
+          key={name}
+          onClick={() => setOpen(false)}
+        >
           <Icon name={icon} />
           <span>{name}</span>
         </NavItem>

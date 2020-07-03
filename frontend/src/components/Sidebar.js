@@ -4,6 +4,9 @@ import styled from "styled-components";
 import colors from "./../config/colors";
 import Hamburger from "./Hamburger";
 import Sidenav from "./Sidenav";
+import InputField from "./InputField";
+import Icon from "./Icon";
+import Channels from "../pages/Channels";
 
 const Sidebar = ({ profilePic, navItems }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
@@ -11,15 +14,15 @@ const Sidebar = ({ profilePic, navItems }) => {
     <Wrapper className="sidebar">
       <div className="sidebar-header">
         <Hamburger open={openSideMenu} setOpen={setOpenSideMenu} />
+        <InputField
+          type="text"
+          Icon={<Icon name="search" position="right" />}
+          placeholder="Search"
+        />
       </div>
-      <Sidenav items={navItems} open={openSideMenu} />
+      <Sidenav items={navItems} open={openSideMenu} setOpen={setOpenSideMenu} />
       <div className="sidebar-body">
-        <div className="channels">
-          <h3>Channel</h3>
-        </div>
-        <div className="direct-messages">
-          <h3>Direct Messages</h3>
-        </div>
+        <Channels />
       </div>
     </Wrapper>
   );
@@ -47,14 +50,31 @@ const Wrapper = styled.div`
       box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
       z-index: 702;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      input {
+        background: transparent;
+        border: none;
+        border: 1px solid ${colors.lightgray};
+        border-radius: 25px;
+        padding: 6px 15px;
+        padding-right: 35px;
+        margin-left: 15px;
+        width: 95%;
+      }
+      .icon {
+        transition: ease 0.3s;
+        top: 6px;
+        right: 8px;
+        &:hover {
+          color: ${colors.primary};
+        }
+      }
     }
     &-body {
       width: 100%auto;
       height: calc(100vh - 57px);
       margin-top: 57px;
-      padding: 20px 20px 0;
+      padding: 20px 0px 0;
       overflow-y: auto;
       border-right: 1px solid ${colors.lightgray};
     }

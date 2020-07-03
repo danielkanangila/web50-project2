@@ -8,7 +8,7 @@ const Messages = () => {
   useEffect(() => {
     setAppState({
       ...appState,
-      ["ToolbarTitle"]: () => (
+      ToolbarTitle: () => (
         <ToolbarTitle
           title="Messages"
           subTitle="You have 300 messages"
@@ -20,7 +20,7 @@ const Messages = () => {
 
   return (
     <div>
-      <h>Messages</h>
+      <h2>Messages</h2>
     </div>
   );
 };

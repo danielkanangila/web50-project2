@@ -15,3 +15,15 @@ a {
   transition: all 0.3s;
   touch-action: manipulation;
 }
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 0.8rem;
+}
