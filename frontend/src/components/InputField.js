@@ -29,7 +29,7 @@ const Wrapper = styled.div`
         border-radius: 25px;
       }
   `
-      : ``}
+      : ``};
 `;
 
 export default InputField;

@@ -1,14 +1,20 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import styled from "styled-components";
+import * as Yup from "yup";
 
 import ListItem from "../components/lists/ListItem";
 import { Icon, ToolbarTitle, ImageCircle } from "../components";
+import { Form, FormTextField } from "./../components/form";
 import { useLocalStorage } from "./../hooks/useLocalStorage";
-import { formatForBadge, formatToolBarSubMessages } from "../utils";
+import { formatForBadge, formatToolBarSubMessages, sortByDate } from "../utils";
 import colors from "./../config/colors";
 // To be replace by fetching data from server
 import { channels } from "../devData.js";
 import { AppContext } from "../contexts";
+
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label("Name"),
+});
 
 const Channels = () => {
   const [savedChannel, saveChannel] = useLocalStorage("channel");
@@ -39,9 +45,24 @@ const Channels = () => {
 
   return (
     <Wrapper>
+      <Form
+        className="create-channel"
+        initialValues={{ name: "" }}
+        onSubmit={(data) => console.log(data)}
+        validationSchema={validationSchema}
+      >
+        <FormTextField
+          name="name"
+          label="Name"
+          type="text"
+          Icon={<Icon name="hashtag" />}
+          placeholder="Name"
+        />
+        <button className="btn btn-primary btn-small">Create</button>
+      </Form>
       <h2>Channels</h2>
       <div className="list">
-        {channels.map((channel) => (
+        {sortByDate(channels, "last_activity").map((channel) => (
           <Fragment key={channel.id}>
             <ListItem
               title={`${channel.name}`}
@@ -81,6 +102,25 @@ const Wrapper = styled.div`
       width: 100%;
       display: flex;
       justify-content: space-between;
+    }
+  }
+  .create-channel {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+
+    input {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: calc(100% - 56px);
+    }
+    .btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
     }
   }
 `;

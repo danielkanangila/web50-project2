@@ -7,3 +7,7 @@ export const formatToolBarSubMessages = (messages) => {
   if (!messages) return "You don't have new message here.";
   return `You have ${messages} unread messages.`;
 };
+
+export const sortByDate = (data, keyName) => {
+  return data.sort((a, b) => new Date(b[keyName]) - new Date(a[keyName]));
+};
