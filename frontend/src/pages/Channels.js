@@ -49,7 +49,7 @@ const Channels = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className="section">
       <Form
         className="create-channel"
         initialValues={{ name: "" }}
@@ -85,36 +85,11 @@ const Channels = () => {
 };
 
 const Wrapper = styled.div`
-  padding: 0 2px;
-  h2 {
-    font-size: 1.2rem;
-    padding: 0 20px 20px;
-  }
-  .list-item {
-    width: 100%auto;
-    h3 {
-      font-weight: normal;
-    }
-    &.highlight {
-      h3 {
-        font-weight: bold;
-      }
-    }
-    &--middle {
-      width: 100%;
-    }
-    &--middle-top {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
   .create-channel {
     display: flex;
     align-items: center;
     padding: 0 20px;
     justify-content: space-between;
-    margin-bottom: 20px;
     position: relative;
 
     input {

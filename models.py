@@ -55,6 +55,7 @@ class Message(Model):
         self.sender_id = None
         self.destination_id = None
         self.body = None
+        self.read = False
         self.created_at = None
 
         self.validation_schema = {

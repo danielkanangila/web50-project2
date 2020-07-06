@@ -31,3 +31,31 @@ a {
 .bg-light {
   background: transparent;
 }
+
+.section {
+  padding: 0 2px;
+  h2 {
+    font-size: 1rem;
+    padding: 20px;
+  }
+}
+
+.list-item {
+  width: 100%;
+  h3 {
+    font-weight: normal;
+  }
+  &.highlight {
+    h3 {
+      font-weight: bold;
+    }
+  }
+  &--middle {
+    width: 100%;
+  }
+  &--middle-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

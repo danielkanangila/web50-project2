@@ -36,3 +36,30 @@ export const channels = [
     last_activity: "2020-07-3 12:30:50",
   },
 ];
+
+export const messages = [
+  {
+    id: 1,
+    from: "Daniel Kanan",
+    to: "Boxing",
+    body: "Text messages if",
+    read: false,
+    created_at: "2020-06-06 12:30:50",
+  },
+  {
+    id: 2,
+    from: "Daniel Kanan",
+    to: "Boxing",
+    body: "Text messages if",
+    read: true,
+    created_at: "2020-06-06 12:30:50",
+  },
+  {
+    id: 3,
+    from: "Daniel Kanan",
+    to: "Boxing",
+    body: "Text messages if",
+    read: false,
+    created_at: "2020-06-06 12:30:50",
+  },
+];

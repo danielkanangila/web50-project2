@@ -44,6 +44,7 @@ const Wrapper = styled(NavLink)`
     &--middle {
       display: flex;
       flex-direction: column;
+      margin-left: 15px;
     }
     &--middle-top {
       display: flex;
@@ -68,7 +69,6 @@ const Wrapper = styled(NavLink)`
   }
 
   .icon {
-    margin-right: 15px;
   }
 `;
 

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import colors from "./../config/colors";
@@ -7,9 +8,12 @@ import Sidenav from "./Sidenav";
 import InputField from "./InputField";
 import Icon from "./Icon";
 import Channels from "../pages/Channels";
+import Messages from "../pages/Messages";
 
 const Sidebar = ({ profilePic, navItems }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
+  const location = useLocation();
+
   return (
     <Wrapper className="sidebar">
       <div className="sidebar-header">
@@ -23,7 +27,14 @@ const Sidebar = ({ profilePic, navItems }) => {
       </div>
       <Sidenav items={navItems} open={openSideMenu} setOpen={setOpenSideMenu} />
       <div className="sidebar-body">
-        <Channels />
+        {(location.pathname === "/user/home" ||
+          location.pathname.includes("channels")) && (
+          <Fragment>
+            <Channels />
+            <Messages />
+          </Fragment>
+        )}
+        {location.pathname === "/user/messages" && <Messages />}
       </div>
     </Wrapper>
   );

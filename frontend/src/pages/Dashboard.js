@@ -6,6 +6,7 @@ import Channel from "./Channel";
 import Home from "./Home";
 import { AppContext } from "../contexts";
 import Messages from "./Messages";
+import Message from "./Message";
 import Profile from "./Profile";
 
 const toolbarMenuItems = [
@@ -32,6 +33,7 @@ const Dashboard = () => {
         <Route exact path="/user/home" component={Home} />
         <Route path="/user/channels/:channel_id" component={Channel} />
         <Route path="/user/messages" component={Messages} />
+        <Route path="/user/messages/:user_id" component={Message} />
         <Route path="/user/profile" component={Profile} />
         <BottomNav items={navItems} />
       </div>
