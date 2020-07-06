@@ -1,20 +1,15 @@
-import React, { useEffect, useContext } from "react";
-import { AppContext } from "../contexts";
-import { ToolbarTitle, Logo } from "../components";
+import React, { useEffect } from "react";
+import { Logo } from "../components";
+import { useToolbar } from "../hooks/useToolbar";
 
 const Home = () => {
-  const { appState, setAppState } = useContext(AppContext);
+  const toolbar = useToolbar();
 
   useEffect(() => {
-    setAppState({
-      ...appState,
-      ToolbarTitle: () => (
-        <ToolbarTitle
-          title="Welcome"
-          subTitle="check your channel"
-          Image={<Logo />}
-        />
-      ),
+    toolbar.setContent({
+      title: "Welcome",
+      subTitle: "Check your channel",
+      Image: () => <Logo />,
     });
   }, []);
 

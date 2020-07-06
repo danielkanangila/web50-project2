@@ -1,21 +1,20 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import styled from "styled-components";
 import * as Yup from "yup";
 
 import ListItem from "../components/lists/ListItem";
-import { Icon, ToolbarTitle, ImageCircle } from "../components";
+import { Icon, ImageCircle } from "../components";
 import { Form, FormTextField } from "./../components/form";
 import { useLocalStorage } from "./../hooks/useLocalStorage";
 import {
   formatForBadge,
-  formatToolBarSubMessages,
-  sortByDate,
   sortByUnread,
+  formatToolBarSubMessages,
 } from "../utils";
 import colors from "./../config/colors";
+import { useToolbar } from "../hooks/useToolbar";
 // To be replace by fetching data from server
 import { channels } from "../devData.js";
-import { AppContext } from "../contexts";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
@@ -23,7 +22,7 @@ const validationSchema = Yup.object().shape({
 
 const Channels = () => {
   const [savedChannel, saveChannel] = useLocalStorage("channel");
-  const { appState, setAppState } = useContext(AppContext);
+  const toolbar = useToolbar();
 
   useEffect(() => {
     setToolbarTile(savedChannel);
@@ -31,18 +30,13 @@ const Channels = () => {
 
   const setToolbarTile = (channelInfo) => {
     saveChannel(channelInfo);
-    setAppState({
-      ...appState,
-      ToolbarTitle: () => (
-        <ToolbarTitle
-          title={channelInfo.name}
-          subTitle={formatToolBarSubMessages(channelInfo.messages)}
-          Image={
-            <ImageCircle
-              theme={{ background: colors.primary, color: colors.white }}
-              iconName="hashtag"
-            />
-          }
+    toolbar.setContent({
+      title: channelInfo.name,
+      subTitle: formatToolBarSubMessages(channelInfo.messages),
+      Image: () => (
+        <ImageCircle
+          theme={{ background: colors.primary, color: colors.white }}
+          iconName="hashtag"
         />
       ),
     });
