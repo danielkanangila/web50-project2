@@ -11,3 +11,11 @@ export const formatToolBarSubMessages = (messages) => {
 export const sortByDate = (data, keyName) => {
   return data.sort((a, b) => new Date(b[keyName]) - new Date(a[keyName]));
 };
+
+export const sortByUnread = (data, keyName) => {
+  return data.sort((a, b) => {
+    if (a[keyName]) return -1;
+    else if (b[keyName]) return 1;
+    else return 0;
+  });
+};

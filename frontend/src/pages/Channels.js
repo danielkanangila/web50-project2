@@ -6,7 +6,12 @@ import ListItem from "../components/lists/ListItem";
 import { Icon, ToolbarTitle, ImageCircle } from "../components";
 import { Form, FormTextField } from "./../components/form";
 import { useLocalStorage } from "./../hooks/useLocalStorage";
-import { formatForBadge, formatToolBarSubMessages, sortByDate } from "../utils";
+import {
+  formatForBadge,
+  formatToolBarSubMessages,
+  sortByDate,
+  sortByUnread,
+} from "../utils";
 import colors from "./../config/colors";
 // To be replace by fetching data from server
 import { channels } from "../devData.js";
@@ -62,7 +67,7 @@ const Channels = () => {
       </Form>
       <h2>Channels</h2>
       <div className="list">
-        {sortByDate(channels, "last_activity").map((channel) => (
+        {sortByUnread(channels, "messages").map((channel) => (
           <Fragment key={channel.id}>
             <ListItem
               title={`${channel.name}`}
