@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Message = () => {
   return (
-    <Wrapper>
+    <Wrapper className="container">
       <h1>Message</h1>
     </Wrapper>
   );

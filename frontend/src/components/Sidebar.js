@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import colors from "./../config/colors";
@@ -13,17 +13,25 @@ import Messages from "../pages/Messages";
 const Sidebar = ({ profilePic, navItems }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
   const location = useLocation();
+  const history = useHistory();
 
   return (
     <Wrapper className="sidebar">
       <div className="sidebar-header">
-        <Hamburger open={openSideMenu} setOpen={setOpenSideMenu} />
-        <InputField
-          type="text"
-          Icon={<Icon name="search" position="right" />}
-          placeholder="Search"
-          style="rounded"
-        />
+        {!location.pathname.includes("messages") && (
+          <Fragment>
+            <Hamburger open={openSideMenu} setOpen={setOpenSideMenu} />
+            <InputField
+              type="text"
+              Icon={<Icon name="search" position="right" />}
+              placeholder="Search"
+              style="rounded"
+            />
+          </Fragment>
+        )}
+        {location.pathname.includes("messages") && (
+          <Icon name="arrow-left" onClick={() => history.push("/user/home")} />
+        )}
       </div>
       <Sidenav items={navItems} open={openSideMenu} setOpen={setOpenSideMenu} />
       <div className="sidebar-body">
@@ -34,7 +42,8 @@ const Sidebar = ({ profilePic, navItems }) => {
             <Messages />
           </Fragment>
         )}
-        {location.pathname === "/user/messages" && <Messages />}
+        {(location.pathname === "/user/messages" ||
+          location.pathname.includes("messages")) && <Messages />}
       </div>
     </Wrapper>
   );
@@ -74,6 +83,7 @@ const Wrapper = styled.div`
         transition: ease 0.3s;
         top: 6px;
         right: 8px;
+        cursor: pointer;
         &:hover {
           color: ${colors.primary};
         }

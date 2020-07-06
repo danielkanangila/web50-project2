@@ -32,7 +32,7 @@ const Dashboard = () => {
         </Toolbar>
         <Route exact path="/user/home" component={Home} />
         <Route path="/user/channels/:channel_id" component={Channel} />
-        <Route path="/user/messages" component={Messages} />
+        <Route exact path="/user/messages" component={Messages} />
         <Route path="/user/messages/:user_id" component={Message} />
         <Route path="/user/profile" component={Profile} />
         <BottomNav items={navItems} />
