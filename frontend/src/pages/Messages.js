@@ -1,25 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 
-import { AppContext } from "../contexts";
-import { Logo, ToolbarTitle, ImageCircle } from "../components";
+import { useToolbar } from "../hooks/useToolbar";
+import { Logo, ImageCircle } from "../components";
 // To be removed
 import { messages } from "./../devData.js";
 import ListItem from "../components/lists/ListItem";
 
 const Messages = () => {
-  const { appState, setAppState } = useContext(AppContext);
+  const toolbar = useToolbar();
 
   useEffect(() => {
-    setAppState({
-      ...appState,
-      ToolbarTitle: () => (
-        <ToolbarTitle
-          title="Messages"
-          subTitle="You have 300 messages"
-          Image={<Logo />}
-        />
-      ),
+    toolbar.setContent({
+      title: "Messages",
+      subTitle: "You have 300 messages",
+      Image: () => <Logo />,
     });
   }, []);
 
