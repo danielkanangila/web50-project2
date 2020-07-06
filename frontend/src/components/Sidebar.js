@@ -93,7 +93,7 @@ const Wrapper = styled.div`
       width: 100%auto;
       height: calc(100vh - 57px);
       margin-top: 57px;
-      padding: 20px 0px 0;
+      padding: 20px 0px 50px;
       overflow-y: auto;
       border-right: 1px solid ${colors.lightgray};
     }
