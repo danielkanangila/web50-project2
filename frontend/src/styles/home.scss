@@ -16,6 +16,7 @@
 
 .main-container {
   width: 100%;
+  position: relative;
   @media (min-width: 850px) {
     width: 73%;
   }
@@ -43,5 +44,23 @@
     @media (min-width: 1024px) {
       margin-top: 0;
     }
+  }
+}
+
+.home-content {
+  width: 100%;
+  padding: 20px 0 100px;
+  margin-top: 125px;
+  .form-field {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+
+  @media (min-width: 850px) {
+    display: none;
   }
 }

@@ -25,7 +25,7 @@ const Channels = () => {
   const toolbar = useToolbar();
 
   useEffect(() => {
-    setToolbarTile(savedChannel);
+    if (savedChannel) setToolbarTile(savedChannel);
   }, []);
 
   const setToolbarTile = (channelInfo) => {

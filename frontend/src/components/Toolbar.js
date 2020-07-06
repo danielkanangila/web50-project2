@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   .bar {
     background-color: ${colors.white};
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     padding: 0 20px;
@@ -29,6 +29,10 @@ const Wrapper = styled.div`
     -moz-box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
     box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);
     z-index: 700;
+    @media (min-width: 850px) {
+      width: 73%;
+      left: 27%;
+    }
   }
 `;
 
