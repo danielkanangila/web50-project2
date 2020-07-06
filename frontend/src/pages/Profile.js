@@ -1,20 +1,16 @@
-import React, { useContext, useEffect } from "react";
-import { AppContext } from "../contexts";
-import { ToolbarTitle, ImageCircle } from "../components";
+import React, { useEffect } from "react";
+
+import { ImageCircle } from "../components";
+import { useToolbar } from "../hooks/useToolbar";
 
 const Profile = () => {
-  const { appState, setAppState } = useContext(AppContext);
+  const toolbar = useToolbar();
 
   useEffect(() => {
-    setAppState({
-      ...appState,
-      ToolbarTitle: () => (
-        <ToolbarTitle
-          title="Daniel Kanangila"
-          subTitle=""
-          Image={<ImageCircle />}
-        />
-      ),
+    toolbar.setContent({
+      title: "Daniel Kanangila",
+      subTitle: "",
+      Image: () => <ImageCircle />,
     });
   }, []);
   return (
