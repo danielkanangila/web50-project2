@@ -25,7 +25,7 @@ const Sidebar = ({ profilePic, navItems }) => {
               type="text"
               Icon={<Icon name="search" position="right" />}
               placeholder="Search"
-              style="rounded"
+              _style="rounded"
             />
           </Fragment>
         )}
@@ -43,7 +43,11 @@ const Sidebar = ({ profilePic, navItems }) => {
           </Fragment>
         )}
         {(location.pathname === "/user/messages" ||
-          location.pathname.includes("messages")) && <Messages />}
+          location.pathname.includes("messages")) && (
+          <Fragment>
+            <Messages />
+          </Fragment>
+        )}
       </div>
     </Wrapper>
   );

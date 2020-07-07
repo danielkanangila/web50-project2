@@ -5,12 +5,13 @@ import { ToolbarTitle } from "../components";
 export const useToolbar = () => {
   const { appState, setAppState } = useContext(AppContext);
 
-  const setContent = ({ title, subTitle, Image }) => {
+  const setContent = ({ title, subTitle, Image, shownBackNav = false }) => {
     setAppState({
       ...appState,
       ToolbarTitle: () => (
         <ToolbarTitle title={title} subTitle={subTitle} Image={<Image />} />
       ),
+      shownBackNav,
     });
   };
 

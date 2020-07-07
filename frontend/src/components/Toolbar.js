@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import colors from "../config/colors";
 
-const Toolbar = ({ children }) => {
+import colors from "../config/colors";
+import { AppContext } from "../contexts";
+import Menu from "./Menu";
+import { Icon } from ".";
+
+const Toolbar = ({ toolbarMenuItems }) => {
+  const { ToolbarTitle, shownBackNav } = useContext(AppContext).appState;
+  const history = useHistory();
+
   return (
     <Wrapper className="toolbar">
-      <div className="bar">{children}</div>
+      <div className="bar">
+        <div className="toolbar-left">
+          {shownBackNav && (
+            <Icon name="arrow-left" onClick={() => history.goBack()} />
+          )}
+          {ToolbarTitle && <ToolbarTitle />}
+        </div>
+        <Menu items={toolbarMenuItems} />
+      </div>
     </Wrapper>
   );
 };
@@ -32,6 +48,16 @@ const Wrapper = styled.div`
     @media (min-width: 850px) {
       width: 73%;
       left: 27%;
+    }
+  }
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    .fa-arrow-left {
+      margin-right: 15px;
+      @media (min-width: 850px) {
+        display: none;
+      }
     }
   }
 `;

@@ -6,9 +6,13 @@ import { Logo, ImageCircle } from "../components";
 import ListItem from "../components/lists/ListItem";
 // To be removed
 import { messages } from "./../devData.js";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useLocation, useRouteMatch } from "react-router-dom";
 
 const Messages = () => {
+  const [dMessage, setDMessage] = useLocalStorage("dMessage");
   const toolbar = useToolbar();
+  const match = useRouteMatch();
 
   useEffect(() => {
     toolbar.setContent({
@@ -18,6 +22,18 @@ const Messages = () => {
     });
   }, []);
 
+  const setToolbar = (info) => {
+    console.log(match);
+    setDMessage(info);
+    toolbar.setContent({
+      title: info.from,
+      subTitle: "online",
+      Image: () => <ImageCircle />,
+      shownBackNav:
+        window.location.pathname !== "/user/messages" ? true : false,
+    });
+  };
+
   return (
     <Wrapper className="section">
       <h2>Direct Messages</h2>
@@ -26,7 +42,7 @@ const Messages = () => {
           key={message.id}
           title={message.from}
           to={`/user/messages/${message.id}`}
-          highlight={message.read}
+          highlight={!message.read}
           Image={<ImageCircle />}
         />
       ))}

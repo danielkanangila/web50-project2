@@ -6,11 +6,11 @@ const InputField = ({
   Icon,
   label,
   name,
-  style = "default",
+  _style = "default",
   ...otherProps
 }) => {
   return (
-    <Wrapper _style={style} id={name} className="field">
+    <Wrapper _style={_style} id={name} className="field">
       <input name={name} {...otherProps} />
       <label htmlFor={name}>{label}</label>
       {Icon}

@@ -1,28 +1,29 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-// to be removed
+
+import { ImageCircle } from "../components";
+import { useToolbar } from "../hooks/useToolbar";
 import { messages } from "./../devData.js";
-import { useToolbar } from "../hooks/useToolbar.js";
 import { useParams } from "react-router-dom";
-import { useLocalStorage } from "../hooks/useLocalStorage.js";
-import { ImageCircle } from "../components/index.js";
 
 const Message = () => {
-  const [dMessage, setDMessage] = useLocalStorage("dMessage");
-  const params = useParams();
   const toolbar = useToolbar();
+  const params = useParams();
 
   useEffect(() => {
-    const dm = messages.filter(
-      (message) => message.id === parseInt(params.user_id)
-    )[0];
-    toolbar.setContent({
-      title: dm.from,
-      subTitle: "online",
-      Image: () => <ImageCircle />,
-    });
+    console.log(params);
+    const message = messages;
   }, []);
 
+  const setToolbar = (info) => {
+    toolbar.setContent({
+      title: info.from,
+      subTitle: "online",
+      Image: () => <ImageCircle />,
+      shownBackNav:
+        window.location.pathname !== "/user/messages" ? true : false,
+    });
+  };
   return (
     <Wrapper className="container">
       <h1>Message</h1>
