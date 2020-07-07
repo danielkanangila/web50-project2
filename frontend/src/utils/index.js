@@ -19,3 +19,29 @@ export const sortByUnread = (data, keyName) => {
     else return 0;
   });
 };
+
+export const getDefaultFontSize = (pa) => {
+  pa = pa || document.body;
+  var who = document.createElement("div");
+
+  who.style.cssText =
+    "display:inline-block; padding:0; line-height:1; position:absolute; visibility:hidden; font-size:1em";
+
+  who.appendChild(document.createTextNode("M"));
+  pa.appendChild(who);
+  var fs = [who.offsetWidth, who.offsetHeight];
+  pa.removeChild(who);
+  return fs;
+};
+
+export const getTextWidth = (text) => {
+  const span = document.createElement("span");
+  span.style =
+    "display:block; padding:0; position:absolute; visibility:hidden; font-size:100%";
+  span.innerText = text;
+  document.body.appendChild(span);
+  const width = span.clientWidth;
+  document.body.removeChild(span);
+
+  return width;
+};

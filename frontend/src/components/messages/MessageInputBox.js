@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: fit-content;
   background-color: ${colors.lightgray1};
   -webkit-box-shadow: 2px -1px 5px 0px rgba(184, 184, 184, 1);
   -moz-box-shadow: 2px -1px 5px 0px rgba(184, 184, 184, 1);
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 15px 20px;
   .textarea {
     width: 94%;
   }
@@ -47,7 +47,7 @@ const Wrapper = styled.div`
     padding: 10px 20px;
     border: 1px solid ${colors.lightgray};
     border-radius: 25px;
-    width: 100%;
+    width: 94%;
     background-color: ${colors.white};
     font-size: 100%;
   }
