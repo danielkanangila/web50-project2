@@ -11,8 +11,10 @@ const Message = () => {
   const params = useParams();
 
   useEffect(() => {
-    console.log(params);
-    const message = messages;
+    const message = messages.filter(
+      (message) => message.id === parseInt(params.user_id)
+    )[0];
+    setToolbar(message);
   }, []);
 
   const setToolbar = (info) => {
@@ -20,8 +22,7 @@ const Message = () => {
       title: info.from,
       subTitle: "online",
       Image: () => <ImageCircle />,
-      shownBackNav:
-        window.location.pathname !== "/user/messages" ? true : false,
+      shownBackNav: true,
     });
   };
   return (

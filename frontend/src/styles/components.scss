@@ -123,4 +123,20 @@
     height: fit-content;
     padding: 7px 15px;
   }
+  &-rounded {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: transparent;
+    padding: 0;
+    text-align: center;
+
+    .icon {
+      margin-left: 30%;
+    }
+
+    &:hover {
+      background-color: hsla(0, 100%, 50%, 0.075);
+    }
+  }
 }

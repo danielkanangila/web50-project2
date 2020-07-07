@@ -16,7 +16,12 @@ const Toolbar = ({ toolbarMenuItems }) => {
       <div className="bar">
         <div className="toolbar-left">
           {shownBackNav && (
-            <Icon name="arrow-left" onClick={() => history.goBack()} />
+            <button
+              onClick={() => history.goBack()}
+              className="btn btn-rounded"
+            >
+              <Icon name="arrow-left" />
+            </button>
           )}
           {ToolbarTitle && <ToolbarTitle />}
         </div>
@@ -59,6 +64,9 @@ const Wrapper = styled.div`
         display: none;
       }
     }
+  }
+  .btn {
+    margin-right: 7px;
   }
 `;
 
