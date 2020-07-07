@@ -16,6 +16,10 @@ a {
   touch-action: manipulation;
 }
 
+button {
+  cursor: pointer;
+}
+
 .badge {
   display: flex;
   justify-content: center;

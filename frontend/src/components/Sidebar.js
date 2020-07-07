@@ -63,11 +63,11 @@ const Wrapper = styled.div`
   .sidebar {
     &-header {
       background-color: ${colors.white};
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       padding: 0 20px;
-      width: 100%;
+      width: 27%;
       height: 57px;
       border-bottom: 2px solid ${colors.primary};
       -webkit-box-shadow: 1px 3px 11px -4px rgba(153, 153, 153, 1);

@@ -5,6 +5,7 @@ import { ImageCircle } from "../components";
 import { useToolbar } from "../hooks/useToolbar";
 import { messages } from "./../devData.js";
 import { useParams, useLocation } from "react-router-dom";
+import { MessageContainer } from "../components/messages";
 
 const Message = () => {
   const toolbar = useToolbar();
@@ -27,8 +28,8 @@ const Message = () => {
     });
   };
   return (
-    <Wrapper className="container">
-      <h1>Message #{params.user_id}</h1>
+    <Wrapper>
+      <MessageContainer></MessageContainer>
     </Wrapper>
   );
 };
