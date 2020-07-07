@@ -38,7 +38,6 @@ const Wrapper = styled.div`
   box-shadow: 2px -1px 5px 0px rgba(184, 184, 184, 1);
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 15px 20px;
   .textarea {
     width: 94%;
@@ -54,9 +53,11 @@ const Wrapper = styled.div`
   button {
     width: fit-content;
     height: fit-content;
+    margin-right: 10px;
     .icon {
       color: ${colors.primary};
       font-size: 2rem;
+      transform: rotate(55deg);
     }
     :hover {
       .icon {
