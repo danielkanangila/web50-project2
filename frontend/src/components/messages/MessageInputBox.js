@@ -1,30 +1,25 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
 import Icon from "../Icon";
+import Textarea from "../Textarea";
 
 const MessageInputBox = () => {
   const [message, setMessage] = useState("");
-  const [textRows, setTextRows] = useState(1);
-  const ref = useRef();
 
   const handleChange = (e) => {
     setMessage(e.target.value);
-    console.log(ref.current.offsetWidth);
   };
 
   return (
     <Wrapper>
-      <textarea
-        ref={ref}
-        onChange={handleChange}
-        rows={textRows}
-        placeholder="Type a message"
-        required
+      <Textarea
         value={message}
-      ></textarea>
-      <button>
+        setValue={handleChange}
+        placeholder="Type a message"
+      />
+      <button onClick={() => console.log("it work")}>
         <Icon name="paper-plane" />
       </button>
     </Wrapper>
@@ -45,15 +40,20 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  .textarea {
+    width: 94%;
+  }
   textarea {
     padding: 10px 20px;
     border: 1px solid ${colors.lightgray};
     border-radius: 25px;
-    width: 94%;
+    width: 100%;
     background-color: ${colors.white};
     font-size: 100%;
   }
   button {
+    width: fit-content;
+    height: fit-content;
     .icon {
       color: ${colors.primary};
       font-size: 2rem;
@@ -63,6 +63,15 @@ const Wrapper = styled.div`
         color: ${colors.pink400};
       }
     }
+  }
+  .hiddenText {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    height: 0;
+    background: none;
+    color: transparent;
   }
 `;
 
