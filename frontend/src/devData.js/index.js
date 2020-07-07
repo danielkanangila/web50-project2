@@ -48,7 +48,7 @@ export const messages = [
   },
   {
     id: 2,
-    from: "Daniel Kanan",
+    from: "Eva Nzi",
     to: "Boxing",
     body: "Text messages if",
     read: true,

@@ -1,18 +1,11 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import * as Yup from "yup";
 
 import ListItem from "../components/lists/ListItem";
-import { Icon, ImageCircle } from "../components";
+import { Icon } from "../components";
 import { Form, FormTextField } from "./../components/form";
-import { useLocalStorage } from "./../hooks/useLocalStorage";
-import {
-  formatForBadge,
-  sortByUnread,
-  formatToolBarSubMessages,
-} from "../utils";
-import colors from "./../config/colors";
-import { useToolbar } from "../hooks/useToolbar";
+import { formatForBadge, sortByUnread } from "../utils";
 // To be replace by fetching data from server
 import { channels } from "../devData.js";
 
@@ -21,27 +14,6 @@ const validationSchema = Yup.object().shape({
 });
 
 const Channels = () => {
-  const [savedChannel, saveChannel] = useLocalStorage("channel");
-  const toolbar = useToolbar();
-
-  useEffect(() => {
-    if (savedChannel) setToolbarTile(savedChannel);
-  }, []);
-
-  const setToolbarTile = (channelInfo) => {
-    saveChannel(channelInfo);
-    toolbar.setContent({
-      title: channelInfo.name,
-      subTitle: formatToolBarSubMessages(channelInfo.messages),
-      Image: () => (
-        <ImageCircle
-          theme={{ background: colors.primary, color: colors.white }}
-          iconName="hashtag"
-        />
-      ),
-    });
-  };
-
   return (
     <Wrapper className="section">
       <Form
@@ -69,7 +41,6 @@ const Channels = () => {
               highlight={channel.messages ? true : false}
               badgeContent={formatForBadge(channel.messages)}
               Image={<Icon name="hashtag" />}
-              onClick={() => setToolbarTile(channel)}
             />
           </Fragment>
         ))}

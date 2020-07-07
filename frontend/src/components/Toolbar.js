@@ -58,15 +58,12 @@ const Wrapper = styled.div`
   .toolbar-left {
     display: flex;
     align-items: center;
-    .fa-arrow-left {
-      margin-right: 15px;
-      @media (min-width: 850px) {
-        display: none;
-      }
-    }
   }
   .btn {
     margin-right: 7px;
+    @media (min-width: 850px) {
+      display: none;
+    }
   }
 `;
 
