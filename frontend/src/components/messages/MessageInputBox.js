@@ -46,7 +46,7 @@ const Wrapper = styled.div`
     padding: 10px 20px;
     border: 1px solid ${colors.lightgray};
     border-radius: 25px;
-    width: 94%;
+    width: 92%;
     background-color: ${colors.white};
     font-size: 100%;
   }

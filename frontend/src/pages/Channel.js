@@ -7,6 +7,7 @@ import { formatToolBarSubMessages } from "../utils";
 import { ImageCircle } from "../components";
 import colors from "../config/colors";
 import { channels } from "./../devData.js";
+import { MessageContainer } from "../components/messages";
 
 const Channel = () => {
   const toolbar = useToolbar();
@@ -38,7 +39,11 @@ const Channel = () => {
     });
   };
 
-  return <Wrapper className="container">Channel</Wrapper>;
+  return (
+    <Wrapper>
+      <MessageContainer />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div``;

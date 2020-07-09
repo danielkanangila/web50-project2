@@ -7,6 +7,7 @@ import Home from "./Home";
 import Messages from "./Messages";
 import Message from "./Message";
 import Profile from "./Profile";
+import { useAppContext } from "./../hooks/useAppContext";
 
 const toolbarMenuItems = [
   { name: "Create Channel", path: "/create-channel", icon: "plus" },

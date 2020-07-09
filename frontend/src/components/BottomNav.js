@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import colors from "./../config/colors";
 import Icon from "./Icon";
 
-const BottomNav = ({ items }) => {
+const BottomNav = ({ items, visible }) => {
   return (
     <Wrapper>
       {items.map((item) => (
