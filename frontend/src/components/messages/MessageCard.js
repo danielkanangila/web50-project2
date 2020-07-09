@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   margin-bottom: 15px;
   padding: 10px 15px;
   border-radius: 5px;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.095);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.155);
   .card {
     &-content-right {
     }

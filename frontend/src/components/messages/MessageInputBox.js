@@ -54,6 +54,10 @@ const Wrapper = styled.div`
     width: 92%;
     background-color: ${colors.white};
     font-size: 100%;
+    transition: 0.3s ease;
+    &:focus {
+      border-color: #2196f3;
+    }
     @media (min-width: 850px) {
       width: 92%;
     }
