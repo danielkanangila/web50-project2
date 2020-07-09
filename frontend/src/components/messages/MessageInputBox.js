@@ -32,7 +32,7 @@ const MessageInputBox = ({ sendWrapperHeight }) => {
 };
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -89,6 +89,10 @@ const Wrapper = styled.div`
     height: 0;
     background: none;
     color: transparent;
+  }
+  @media (min-width: 850px) {
+    width: 73%;
+    left: 27%;
   }
 `;
 

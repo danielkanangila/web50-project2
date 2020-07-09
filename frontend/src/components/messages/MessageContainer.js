@@ -37,9 +37,10 @@ const Wrapper = styled.div`
   .messages {
     position: absolute;
     width: 88%;
+    overflow-y: auto;
     ${({ paddingBottom }) =>
       !paddingBottom ? `bottom: ${100}px` : `bottom: ${paddingBottom}px`};
-    padding: 15px 0;
+    padding: 15px 3px;
     @media (min-width: 850px) {
       width: 93%;
     }

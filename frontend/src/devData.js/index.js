@@ -65,4 +65,31 @@ export const messages = [
     read: false,
     created_at: "2020-06-06 12:45:50",
   },
+  {
+    id: 4,
+    from: "Daniel Kanan",
+    to: "Boxing",
+    body:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex laboriosam sit, quas aspernatur at quisquam, tempora magnam ab aliquid repellendus eius, id nemo necessitatibus? Numquam possimus expedita animi eligendi.",
+    read: false,
+    created_at: "2020-06-06 12:45:50",
+  },
+  {
+    id: 5,
+    from: "Daniel Kanan",
+    to: "Boxing",
+    body:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex laboriosam sit, quas aspernatur at quisquam, tempora magnam ab aliquid repellendus eius, id nemo necessitatibus? Numquam possimus expedita animi eligendi.",
+    read: false,
+    created_at: "2020-06-06 12:45:50",
+  },
+  {
+    id: 6,
+    from: "Daniel Kanan",
+    to: "Boxing",
+    body:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ex laboriosam sit, quas aspernatur at quisquam, tempora magnam ab aliquid repellendus eius, id nemo necessitatibus? Numquam possimus expedita animi eligendi.",
+    read: false,
+    created_at: "2020-06-06 12:45:50",
+  },
 ];
