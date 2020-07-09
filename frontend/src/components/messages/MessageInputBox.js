@@ -49,11 +49,18 @@ const Wrapper = styled.div`
     width: 92%;
     background-color: ${colors.white};
     font-size: 100%;
+    @media (min-width: 850px) {
+      width: 92%;
+    }
   }
   button {
     width: fit-content;
     height: fit-content;
-    margin-right: 10px;
+    margin-left: 10px;
+    @media (min-width: 850px) {
+      margin-left: 0%;
+      margin-right: 10px;
+    }
     .icon {
       color: ${colors.primary};
       font-size: 2rem;
