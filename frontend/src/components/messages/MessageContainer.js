@@ -16,6 +16,7 @@ const MessageContainer = ({ messages }) => {
         {messages.map((message) => (
           <MessageCard
             key={message.id}
+            username={message.from}
             message={message.body}
             createdAt={message.created_at}
           />
@@ -35,9 +36,13 @@ const Wrapper = styled.div`
   position: relative;
   .messages {
     position: absolute;
+    width: 88%;
     ${({ paddingBottom }) =>
       !paddingBottom ? `bottom: ${100}px` : `bottom: ${paddingBottom}px`};
-    padding: 30px 0;
+    padding: 15px 0;
+    @media (min-width: 850px) {
+      width: 93%;
+    }
   }
 `;
 
