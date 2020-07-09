@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const formatForBadge = (number) => {
   if (!number) return false;
   return number < 100 ? number : "+99";
@@ -44,4 +46,8 @@ export const getTextWidth = (text) => {
   document.body.removeChild(span);
 
   return width;
+};
+
+export const getTimeFromStringDate = (date) => {
+  return moment(date, "YYYY-DD-MM, hh:mm:ss").format("hh:mm");
 };
