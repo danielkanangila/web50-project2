@@ -6,8 +6,12 @@ import { useToolbar } from "../hooks/useToolbar";
 import { messages } from "./../devData.js";
 import { useParams, useLocation } from "react-router-dom";
 import { MessageContainer } from "../components/messages";
+import { useBottomNav } from "../hooks/useBottomNav";
 
 const Message = () => {
+  // hide  bottom-nav
+  useBottomNav().setVisibility(false);
+
   const toolbar = useToolbar();
   const params = useParams();
   const location = useLocation();

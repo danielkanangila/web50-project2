@@ -1,6 +1,20 @@
 body {
   font-size: 100%;
   background-color: #fafafa;
+  .bottom-nav {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (min-width: 850px) {
+      display: none;
+    }
+  }
+  &.no--bottom-nav {
+    .bottom-nav {
+      display: none;
+    }
+  }
 }
 
 * {

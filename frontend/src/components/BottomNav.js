@@ -7,7 +7,7 @@ import Icon from "./Icon";
 
 const BottomNav = ({ items, visible }) => {
   return (
-    <Wrapper>
+    <Wrapper className="bottom-nav">
       {items.map((item) => (
         <NavItem key={item.name} {...item} />
       ))}

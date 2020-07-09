@@ -8,8 +8,12 @@ import { ImageCircle } from "../components";
 import colors from "../config/colors";
 import { channels } from "./../devData.js";
 import { MessageContainer } from "../components/messages";
+import { useBottomNav } from "../hooks/useBottomNav";
 
 const Channel = () => {
+  // hide bottom-nav
+  useBottomNav().setVisibility(false);
+
   const toolbar = useToolbar();
   const params = useParams();
   const location = useLocation();
@@ -17,6 +21,7 @@ const Channel = () => {
   useEffect(() => {
     const channel = fetchChannelInfo();
     setToolbar(channel);
+    //hideBottomNav(true);
   }, [location]);
 
   const fetchChannelInfo = () => {

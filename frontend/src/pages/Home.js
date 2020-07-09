@@ -5,8 +5,12 @@ import { useWindowSize } from "../hooks/useWindowSize";
 import Messages from "./Messages";
 import Channels from "./Channels";
 import { useAppContext } from "../hooks/useAppContext";
+import { useBottomNav } from "../hooks/useBottomNav";
 
 const Home = () => {
+  // show  bottom-nav
+  useBottomNav().setVisibility(true);
+
   const toolbar = useToolbar();
   const [hasMessages, setHasMessages] = useState(true);
   const windowSize = useWindowSize();

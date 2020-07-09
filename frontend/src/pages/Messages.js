@@ -6,8 +6,12 @@ import { Logo, ImageCircle } from "../components";
 import ListItem from "../components/lists/ListItem";
 // To be removed
 import { messages } from "./../devData.js";
+import { useBottomNav } from "../hooks/useBottomNav";
 
 const Messages = () => {
+  // show  bottom-nav
+  useBottomNav().setVisibility(true);
+
   const toolbar = useToolbar();
 
   useEffect(() => {
