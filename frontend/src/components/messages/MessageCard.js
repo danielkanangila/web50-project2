@@ -4,13 +4,13 @@ import styled from "styled-components";
 import ImageCircle from "./../ImageCircle";
 import { getTimeFromStringDate } from "./../../utils";
 
-const MessageCard = ({ avatarUrl, message, created_at }) => {
+const MessageCard = ({ avatarUrl, message, createdAt }) => {
   return (
     <Wrapper>
       <ImageCircle url={avatarUrl} />
       <div className="text-box">
         <p>{message}</p>
-        <span>{getTimeFromStringDate(created_at)}</span>
+        <span>{getTimeFromStringDate(createdAt)}</span>
       </div>
     </Wrapper>
   );

@@ -9,31 +9,31 @@ export const channels = [
     id: 2,
     name: "boxing",
     messages: 0,
-    last_activity: "2020-07-1 08:30:50",
+    last_activity: "2020-07-0 1 08:30:50",
   },
   {
     id: 3,
     name: "boxing",
     messages: 10,
-    last_activity: "2020-07-2 09:30:50",
+    last_activity: "2020-07-02 09:30:50",
   },
   {
     id: 4,
     name: "boxing",
     messages: 500,
-    last_activity: "2020-07-3 11:45:50",
+    last_activity: "2020-07-03 11:45:50",
   },
   {
     id: 5,
     name: "boxing",
     messages: 5,
-    last_activity: "2020-07-3 12:30:50",
+    last_activity: "2020-07-03 12:30:50",
   },
   {
     id: 6,
     name: "boxing",
     messages: 0,
-    last_activity: "2020-07-3 12:30:50",
+    last_activity: "2020-07-03 12:30:50",
   },
 ];
 
@@ -44,7 +44,7 @@ export const messages = [
     to: "Boxing",
     body: "Text messages if",
     read: false,
-    created_at: "2020-06-06 12:30:50",
+    created_at: "2020-06-06 12:35:50",
   },
   {
     id: 2,
@@ -52,7 +52,7 @@ export const messages = [
     to: "Boxing",
     body: "Text messages if",
     read: true,
-    created_at: "2020-06-06 12:30:50",
+    created_at: "2020-06-06 08:30:50",
   },
   {
     id: 3,
@@ -60,6 +60,6 @@ export const messages = [
     to: "Boxing",
     body: "Text messages if",
     read: false,
-    created_at: "2020-06-06 12:30:50",
+    created_at: "2020-06-06 12:45:50",
   },
 ];

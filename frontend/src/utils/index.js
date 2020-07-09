@@ -1,4 +1,6 @@
 import moment from "moment";
+import { messages } from "../devData.js";
+import { MessageContainer } from "../components/messages/index.js";
 
 export const formatForBadge = (number) => {
   if (!number) return false;

@@ -6,7 +6,7 @@ import { useToolbar } from "../hooks/useToolbar";
 import { formatToolBarSubMessages } from "../utils";
 import { ImageCircle } from "../components";
 import colors from "../config/colors";
-import { channels } from "./../devData.js";
+import { channels, messages } from "./../devData.js";
 import { MessageContainer } from "../components/messages";
 import { useBottomNav } from "../hooks/useBottomNav";
 
@@ -46,7 +46,7 @@ const Channel = () => {
 
   return (
     <Wrapper>
-      <MessageContainer />
+      <MessageContainer messages={messages} />
     </Wrapper>
   );
 };
