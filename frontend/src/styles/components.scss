@@ -80,14 +80,18 @@
   }
 
   .input-icon:focus::-webkit-input-placeholder,
-  input:focus::-webkit-input-placeholder {
+  .input-icon:hover::-webkit-input-placeholder,
+  input:focus::-webkit-input-placeholder,
+  input:hover::-webkit-input-placeholder {
     opacity: 1;
   }
 
   .input-icon:not(:placeholder-shown) + label,
   input:not(:placeholder-shown) + label,
   .input-icon:focus + label,
-  input:focus + label {
+  .input-icon:hover + label,
+  input:focus + label,
+  input:hover + label {
     font-weight: bold;
     transform: translate(0, 0) scale(1);
     cursor: pointer;
