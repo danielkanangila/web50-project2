@@ -13,14 +13,16 @@ const MessageContainer = ({ messages }) => {
       className="message-container"
     >
       <div className="messages">
-        {messages.map((message) => (
-          <MessageCard
-            key={message.id}
-            username={message.from}
-            message={message.body}
-            createdAt={message.created_at}
-          />
-        ))}
+        <div className="messages-clearfix">
+          {messages.map((message) => (
+            <MessageCard
+              key={message.id}
+              username={message.from}
+              message={message.body}
+              createdAt={message.created_at}
+            />
+          ))}
+        </div>
       </div>
       <MessageInputBox sendWrapperHeight={setMessageInputBoxHeight} />
     </Wrapper>
@@ -31,18 +33,23 @@ const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - 57px);
   margin-top: 57px;
-  padding: 20px;
   background-color: ${colors.lightgray1};
   position: relative;
+
   .messages {
-    position: absolute;
-    width: 88%;
-    overflow-y: auto;
+    position: relative;
+    left: 0%;
+    width: 100%;
+    height: 100%;
     ${({ paddingBottom }) =>
-      !paddingBottom ? `bottom: ${100}px` : `bottom: ${paddingBottom}px`};
-    padding: 15px 3px;
-    @media (min-width: 850px) {
-      width: 93%;
+      !paddingBottom ? `bottom: ${70}px` : `bottom: ${paddingBottom}px`};
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    &-clearfix {
+      width: 100%;
+      padding: 100px 25px 15px;
+      overflow-y: scroll;
     }
   }
 `;

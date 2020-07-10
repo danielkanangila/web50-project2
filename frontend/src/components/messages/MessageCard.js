@@ -26,9 +26,10 @@ const Wrapper = styled.div`
   display: flex;
   background-color: ${colors.white};
   margin-bottom: 15px;
-  padding: 10px 15px;
+  padding: 15px;
   border-radius: 5px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.155);
+  width: 98%;
   .card {
     &-content-right {
     }

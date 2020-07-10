@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
 import colors from "../../config/colors";
@@ -8,8 +8,11 @@ import Textarea from "../Textarea";
 const MessageInputBox = ({ sendWrapperHeight }) => {
   const wrapperRef = useRef();
   const [message, setMessage] = useState("");
-  // send wrapper box height to parent
-  sendWrapperHeight(wrapperRef.current?.offsetHeight);
+
+  useEffect(() => {
+    // send wrapper box height to parent
+    sendWrapperHeight(wrapperRef.current?.offsetHeight);
+  }, []);
 
   const handleChange = (e) => {
     setMessage(e.target.value);
