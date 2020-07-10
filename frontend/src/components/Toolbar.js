@@ -60,7 +60,7 @@ const Wrapper = styled.div`
     align-items: center;
   }
   .btn {
-    margin-right: 7px;
+    border-radius: 50%;
     @media (min-width: 850px) {
       display: none;
     }
