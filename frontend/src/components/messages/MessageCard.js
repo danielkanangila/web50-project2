@@ -5,10 +5,10 @@ import ImageCircle from "./../ImageCircle";
 import { getTimeFromStringDate } from "./../../utils";
 import colors from "../../config/colors";
 
-const MessageCard = ({ avatarUrl, username, message, createdAt }) => {
+const MessageCard = ({ avatarUrl, username, message, createdAt, isDM }) => {
   return (
     <Wrapper>
-      <ImageCircle url={avatarUrl} />
+      {!isDM && <ImageCircle url={avatarUrl} />}
       <div className="card-content-right">
         <div className="card-header">
           <h5>{username}</h5>

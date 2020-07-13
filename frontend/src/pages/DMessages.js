@@ -8,7 +8,7 @@ import ListItem from "../components/lists/ListItem";
 import { messages } from "./../devData.js";
 import { useBottomNav } from "../hooks/useBottomNav";
 
-const Messages = () => {
+const DMessages = () => {
   // show  bottom-nav
   useBottomNav().setVisibility(true);
 
@@ -46,4 +46,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default Messages;
+export default DMessages;

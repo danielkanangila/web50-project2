@@ -8,7 +8,7 @@ import Sidenav from "./Sidenav";
 import InputField from "./InputField";
 import Icon from "./Icon";
 import Channels from "../pages/Channels";
-import Messages from "../pages/Messages";
+import DMessages from "../pages/DMessages";
 
 const Sidebar = ({ profilePic, navItems }) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
@@ -39,13 +39,13 @@ const Sidebar = ({ profilePic, navItems }) => {
           location.pathname.includes("channels")) && (
           <Fragment>
             <Channels />
-            <Messages />
+            <DMessages />
           </Fragment>
         )}
         {(location.pathname === "/user/messages" ||
           location.pathname.includes("messages")) && (
           <Fragment>
-            <Messages />
+            <DMessages />
           </Fragment>
         )}
       </div>

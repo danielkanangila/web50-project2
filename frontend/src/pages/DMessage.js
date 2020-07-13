@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 import { ImageCircle } from "../components";
 import { useToolbar } from "../hooks/useToolbar";
-import { messages } from "./../devData.js";
+import { messages } from "../devData.js/index.js";
 import { useParams, useLocation } from "react-router-dom";
 import { MessageContainer } from "../components/messages";
 import { useBottomNav } from "../hooks/useBottomNav";
 
-const Message = () => {
+const DMessage = () => {
   // hide  bottom-nav
   useBottomNav().setVisibility(false);
 
@@ -40,4 +40,4 @@ const Message = () => {
 
 const Wrapper = styled.div``;
 
-export default Message;
+export default DMessage;

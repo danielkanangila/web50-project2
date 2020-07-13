@@ -4,10 +4,9 @@ import { Route } from "react-router-dom";
 import { Sidebar, Toolbar, BottomNav } from "../components";
 import Channel from "./Channel";
 import Home from "./Home";
-import Messages from "./Messages";
-import Message from "./Message";
+import DMessages from "./DMessages";
+import DMessage from "./DMessage";
 import Profile from "./Profile";
-import { useAppContext } from "./../hooks/useAppContext";
 
 const toolbarMenuItems = [
   { name: "Create Channel", path: "/create-channel", icon: "plus" },
@@ -28,8 +27,8 @@ const Dashboard = () => {
         <Toolbar toolbarMenuItems={toolbarMenuItems} />
         <Route exact path="/user/home" component={Home} />
         <Route path="/user/channels/:channel_id" component={Channel} />
-        <Route exact path="/user/messages" component={Messages} />
-        <Route path="/user/messages/:user_id" component={Message} />
+        <Route exact path="/user/messages" component={DMessages} />
+        <Route path="/user/messages/:user_id" component={DMessage} />
         <Route path="/user/profile" component={Profile} />
         <BottomNav items={navItems} />
       </div>

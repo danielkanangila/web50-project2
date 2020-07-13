@@ -2,7 +2,7 @@ import React, { useEffect, Fragment, useState } from "react";
 import { Logo } from "../components";
 import { useToolbar } from "../hooks/useToolbar";
 import { useWindowSize } from "../hooks/useWindowSize";
-import Messages from "./Messages";
+import DMessages from "./DMessages";
 import Channels from "./Channels";
 import { useAppContext } from "../hooks/useAppContext";
 import { useBottomNav } from "../hooks/useBottomNav";
@@ -33,7 +33,7 @@ const Home = () => {
       {show() ? (
         <div className="home-content">
           <Channels />
-          <Messages />
+          <DMessages />
         </div>
       ) : (
         <Fragment>
