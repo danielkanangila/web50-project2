@@ -34,6 +34,9 @@ const Wrapper = styled.div`
     padding: 0;
     margin-right: 10px;
   }
+  .icon {
+    color: ${colors.white};
+  }
 `;
 
 export default ToolbarTitle;

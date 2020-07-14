@@ -30,7 +30,7 @@ const Sidebar = ({ profilePic, navItems }) => {
           </Fragment>
         )}
         {location.pathname.includes("messages") && (
-          <Icon name="arrow-left" onClick={() => history.push("/user/home")} />
+          <Icon name="arrow_back" onClick={() => history.push("/user/home")} />
         )}
       </div>
       <Sidenav items={navItems} open={openSideMenu} setOpen={setOpenSideMenu} />
@@ -85,8 +85,8 @@ const Wrapper = styled.div`
       }
       .icon {
         transition: ease 0.3s;
-        top: 6px;
-        right: 8px;
+        top: 2.5px;
+        right: 5px;
         cursor: pointer;
         &:hover {
           color: ${colors.primary};

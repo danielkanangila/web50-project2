@@ -10,7 +10,7 @@ const Menu = ({ items }) => {
 
   return (
     <Wrapper>
-      <Icon onClick={() => setToggle(!toggle)} name="ellipsis-v" />
+      <Icon onClick={() => setToggle(!toggle)} name="more_vert" />
       {toggle && (
         <div className={`menu-items ${toggle ? "open" : "close"}`}>
           {items.map((item) => (

@@ -9,7 +9,8 @@ const MessageCard = ({ avatarUrl, username, message, createdAt, isDM }) => {
   const user = { displayName: "Daniel Kanan" };
 
   const getCardPosition = () => {
-    return user.displayName === username ? "left" : "right";
+    if (!isDM) return "msg";
+    return user.displayName === username ? "dm-left" : "dm-right";
   };
 
   return (
@@ -67,7 +68,7 @@ const Wrapper = styled.div`
   `
       : ``};
   ${({ className }) =>
-    className.includes("right")
+    className.includes("dm-right")
       ? `
       float: right;
       border-bottom-right-radius: 0;
@@ -79,7 +80,7 @@ const Wrapper = styled.div`
     `
       : null};
   ${({ className }) =>
-    className.includes("left")
+    className.includes("dm-left")
       ? `
       left: 0;
       border-bottom-left-radius: 0;

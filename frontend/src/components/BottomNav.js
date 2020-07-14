@@ -63,6 +63,7 @@ const Wrapper = styled.div`
     span,
     .icon {
       color: ${colors.white};
+      font-size: 1.4rem;
     }
     span {
       font-size: 0.8rem;

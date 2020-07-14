@@ -28,7 +28,7 @@ const MessageInputBox = ({ sendWrapperHeight }) => {
         placeholder="Type a message"
       />
       <button onClick={() => console.log("it work")}>
-        <Icon name="paper-plane" />
+        <Icon name="send" />
       </button>
     </Wrapper>
   );
@@ -46,6 +46,7 @@ const Wrapper = styled.div`
   box-shadow: 2px -1px 5px 0px rgba(184, 184, 184, 1);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 20px;
   .textarea {
     width: 94%;
@@ -76,7 +77,6 @@ const Wrapper = styled.div`
     .icon {
       color: ${colors.primary};
       font-size: 2rem;
-      transform: rotate(55deg);
     }
     :hover {
       .icon {

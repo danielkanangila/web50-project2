@@ -37,7 +37,7 @@ const Channel = () => {
       Image: () => (
         <ImageCircle
           theme={{ background: colors.primary, color: colors.white }}
-          iconName="hashtag"
+          iconName="alternate_email"
         />
       ),
       shownBackNav: true,

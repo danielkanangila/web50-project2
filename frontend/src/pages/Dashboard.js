@@ -9,14 +9,14 @@ import DMessage from "./DMessage";
 import Profile from "./Profile";
 
 const toolbarMenuItems = [
-  { name: "Create Channel", path: "/create-channel", icon: "plus" },
-  { name: "Settings", path: "/settings", icon: "sliders-h" },
+  { name: "Create Channel", path: "/create-channel", icon: "add" },
+  { name: "Settings", path: "/settings", icon: "tune" },
 ];
 
 const navItems = [
   { name: "Home", path: "/user/home", icon: "home" },
-  { name: "Messages", path: "/user/messages", icon: "comments" },
-  { name: "Me", path: "/user/profile", icon: "user" },
+  { name: "Messages", path: "/user/messages", icon: "chat" },
+  { name: "Me", path: "/user/profile", icon: "person" },
 ];
 
 const Dashboard = () => {

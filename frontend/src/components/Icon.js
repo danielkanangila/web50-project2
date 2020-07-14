@@ -2,7 +2,9 @@ import React from "react";
 
 const Icon = ({ name, position = "left", ...otherProps }) => {
   return (
-    <i className={"fas fa-" + name + " icon " + position} {...otherProps}></i>
+    <span className={"material-icons" + " icon " + position} {...otherProps}>
+      {name}
+    </span>
   );
 };
 

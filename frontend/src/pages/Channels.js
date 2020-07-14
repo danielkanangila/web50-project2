@@ -40,7 +40,7 @@ const Channels = () => {
               to={`/user/channels/${channel.id}`}
               highlight={channel.messages ? true : false}
               badgeContent={formatForBadge(channel.messages)}
-              Image={<Icon name="hashtag" />}
+              Image={<Icon name="alternate_email" />}
             />
           </Fragment>
         ))}

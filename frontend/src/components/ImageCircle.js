@@ -7,7 +7,7 @@ import Icon from "./Icon";
 const ImageCircle = ({
   url,
   theme = { background: colors.lightgray, color: colors.gray },
-  iconName = "user",
+  iconName = "person",
 }) => {
   return (
     <Wrapper theme={theme}>
