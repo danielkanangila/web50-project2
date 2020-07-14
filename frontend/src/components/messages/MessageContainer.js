@@ -4,7 +4,7 @@ import colors from "../../config/colors";
 import MessageInputBox from "./MessageInputBox";
 import MessageCard from "./MessageCard";
 
-const MessageContainer = ({ messages }) => {
+const MessageContainer = ({ messages, isDM = false }) => {
   const [messageInputBoxHeight, setMessageInputBoxHeight] = useState();
 
   return (
@@ -20,6 +20,7 @@ const MessageContainer = ({ messages }) => {
               username={message.from}
               message={message.body}
               createdAt={message.created_at}
+              isDM={isDM}
             />
           ))}
         </div>

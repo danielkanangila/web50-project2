@@ -6,13 +6,21 @@ import { getTimeFromStringDate } from "./../../utils";
 import colors from "../../config/colors";
 
 const MessageCard = ({ avatarUrl, username, message, createdAt, isDM }) => {
+  const user = { displayName: "Daniel Kanan" };
+
+  const getCardPosition = () => {
+    return user.displayName === username ? "left" : "right";
+  };
+
   return (
-    <Wrapper>
+    <Wrapper className={`message-card ` + getCardPosition()} isDM={isDM}>
       {!isDM && <ImageCircle url={avatarUrl} />}
       <div className="card-content-right">
         <div className="card-header">
-          <h5>{username}</h5>
-          <span>{getTimeFromStringDate(createdAt)}</span>
+          {!isDM && <h5>{username}</h5>}
+          <span className={isDM ? "dm-time" : "m-time"}>
+            {getTimeFromStringDate(createdAt)}
+          </span>
         </div>
         <div className="card-text-box">
           <p>{message}</p>
@@ -30,6 +38,7 @@ const Wrapper = styled.div`
   border-radius: 5px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.155);
   width: 98%;
+  position: relative;
   .card {
     &-content-right {
     }
@@ -41,9 +50,41 @@ const Wrapper = styled.div`
         margin-left: 10px;
         font-size: 0.7rem;
         color: ${colors.gray};
+
+        &.dm-time {
+          margin-left: 0px;
+        }
       }
     }
   }
+
+  ${({ isDM }) =>
+    isDM
+      ? `
+    width: fit-content;
+    max-width: 90%;
+    border-radius: 20px;
+  `
+      : ``};
+  ${({ className }) =>
+    className.includes("right")
+      ? `
+      float: right;
+      border-bottom-right-radius: 0;
+      background-color: ${colors.primary};
+      div.card-header span,
+      div.card-text-box p {
+        color: ${colors.white};
+      }
+    `
+      : null};
+  ${({ className }) =>
+    className.includes("left")
+      ? `
+      left: 0;
+      border-bottom-left-radius: 0;
+    `
+      : null};
 `;
 
 export default MessageCard;
