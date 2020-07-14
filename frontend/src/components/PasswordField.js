@@ -12,7 +12,7 @@ const PasswordField = (props) => {
       <InputField {...props} type={type} />
       <Icon
         onClick={() => setType(getType())}
-        name={type === "password" ? "eye-slash" : "eye"}
+        name={type === "password" ? "visibility" : "visibility_off"}
         position="right"
       />
     </div>

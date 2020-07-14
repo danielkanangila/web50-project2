@@ -34,13 +34,13 @@ const Login = () => {
           name="username"
           label="Username"
           type="text"
-          Icon={<Icon name="user" />}
+          Icon={<Icon name="person" />}
         />
         <FormPasswordField
           name="password"
           label="Password"
           type="password"
-          Icon={<Icon name="unlock-alt" />}
+          Icon={<Icon name="lock" />}
         />
         <div className="auth-form--action">
           <FormCheckbox color={"#fe346e"} name="rememberMe">

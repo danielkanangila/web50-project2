@@ -37,6 +37,8 @@ const Wrapper = styled.div`
   background-color: ${colors.lightgray1};
   position: relative;
 
+  ${({ paddingBottom }) => console.log(paddingBottom)}
+
   .messages {
     position: relative;
     left: 0%;

@@ -4,7 +4,6 @@ import { useToolbar } from "../hooks/useToolbar";
 import { useWindowSize } from "../hooks/useWindowSize";
 import DMessages from "./DMessages";
 import Channels from "./Channels";
-import { useAppContext } from "../hooks/useAppContext";
 import { useBottomNav } from "../hooks/useBottomNav";
 
 const Home = () => {
@@ -14,7 +13,6 @@ const Home = () => {
   const toolbar = useToolbar();
   const [hasMessages, setHasMessages] = useState(true);
   const windowSize = useWindowSize();
-  const appContext = useAppContext();
 
   useEffect(() => {
     toolbar.setContent({

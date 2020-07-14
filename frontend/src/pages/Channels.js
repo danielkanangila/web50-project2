@@ -15,7 +15,7 @@ const validationSchema = Yup.object().shape({
 
 const Channels = () => {
   return (
-    <Wrapper className="section">
+    <Wrapper className="section channels">
       <Form
         className="create-channel"
         initialValues={{ name: "" }}
@@ -23,10 +23,10 @@ const Channels = () => {
         validationSchema={validationSchema}
       >
         <FormTextField
-          name="name"
+          name="channel_name"
           label="Name"
           type="text"
-          Icon={<Icon name="hashtag" />}
+          Icon={<Icon name="alternate_email" />}
           placeholder="Name"
         />
         <button className="btn btn-primary btn-small">Create</button>
@@ -56,16 +56,16 @@ const Wrapper = styled.div`
     padding: 0 20px;
     justify-content: space-between;
     position: relative;
-
-    input {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      width: calc(100% - 56px);
+    .form-field {
+      .icon {
+        bottom: 7px;
+      }
     }
     .btn {
       position: absolute;
       top: 10px;
       right: 20px;
+      padding: 9px;
     }
   }
 `;

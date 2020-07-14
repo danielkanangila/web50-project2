@@ -20,7 +20,7 @@ const Toolbar = ({ toolbarMenuItems }) => {
               onClick={() => history.goBack()}
               className="btn btn-rounded"
             >
-              <Icon name="arrow-left" />
+              <Icon name="arrow_back" />
             </button>
           )}
           {ToolbarTitle && <ToolbarTitle />}
